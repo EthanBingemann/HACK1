@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test AI Workout Generator</title>
+</head>
+<body>
+    <h1>Test AI Workout Generator</h1>
+    
+    <button id="generate-workout">Generate Workout</button>
+
+    <div id="result"></div>
+
+    <script>
+        document.getElementById('generate-workout').addEventListener('click', function () {
+            fetch('http://localhost:5500/generate-workout', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    injury: 'knee',
+                    severity: 'moderate',
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data); 
+                document.getElementById('result').innerHTML = 
+                    `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById('result').innerHTML = 'Error generating workout plan.';
+            });
+        });
+    </script>
+</body>
+</html>
