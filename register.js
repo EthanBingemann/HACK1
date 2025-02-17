@@ -13,7 +13,7 @@ const Register = ({ onFormSwitch }) => {
 
     return (
         <div className="auth-container">
-            <h2>Register</h2>
+            <h2>Register For Your ReForge Account!</h2>
             <form className="register-form" onSubmit={handleSubmit}>
                 <label htmlFor="email">Email</label>
                 <input value = {email} onChange = {(e) => setEmail(e.target.value)} type = "email" placeholder = "rutgers@example.com" id = "email" name = "email" required/>
