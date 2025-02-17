@@ -9,12 +9,12 @@ const Login = ({ onFormSwitch }) => {
 
 const handleSubmit = (e) => {
     e.preventDefault();
-
     console.log(email,password);
 }
 
 return (
     <div className = "auth-container">
+        <h1> Welcome to ReForge!</h1>
         <h2>Login</h2>
         <form className = "login-form" onSubmit = {handleSubmit}>
             <label htmlFor = "email">Email</label>
@@ -23,7 +23,7 @@ return (
             <input value = {password} onChange = {(e) => setPassword(e.target.value)} type = "password" placeholder = "*********" id = "password" name = "password" />
             <button type = "submit" > Log In</button>
         </form>
-        <button className = "link-btn" onClick={() => onFormSwitch('regular')} > Don't have an account? Click here to Register.</button>
+        <button className = "link-btn" onClick={() => onFormSwitch('register')} > Don't have an account? Click here to Register.</button>
     </div>
 )
 }
